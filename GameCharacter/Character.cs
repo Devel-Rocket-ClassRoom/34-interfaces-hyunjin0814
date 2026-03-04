@@ -27,22 +27,41 @@ class Character : IAttacker, IDefender
 
     public void Attack(IDefender target)
     {
-        Console.Write($"{Name}(이/가) {target}에게 {AttackPower} 대미지!");
+        Console.Write($"{Name}(이/가) ");
         target.TakeDamage(AttackPower);
     }
 
     public void TakeDamage(int damage)
     {
         CurrentHp -= damage;
-        Console.WriteLine($"{Name} HP: {CurrentHp}/{MaxHp}");
+        Console.WriteLine($"{Name}에게 {damage} 대미지! ({Name} HP: {CurrentHp}/{MaxHp})");
         if (CurrentHp == 0)
         {
             IsDead = true;
+            Console.WriteLine($"{Name}(이/가) 쓰러졌습니다!");
         }
     }
 
-    public override string ToString()
-    {
-        return Name;
-    }
+    // 2. ToString() 오버라이딩으로 구현
+
+    //public void Attack(IDefender target)
+    //{
+    //    Console.Write($"{Name}(이/가) {target}에게 {AttackPower} 대미지!");
+    //    target.TakeDamage(AttackPower);
+    //}
+
+    //public void TakeDamage(int damage)
+    //{
+    //    CurrentHp -= damage;
+    //    Console.WriteLine($"({Name} HP: {CurrentHp}/{MaxHp})");
+    //    if (CurrentHp == 0)
+    //    {
+    //        IsDead = true;
+    //    }
+    //}
+
+    //public override string ToString()
+    //{
+    //    return Name;
+    //}
 }
