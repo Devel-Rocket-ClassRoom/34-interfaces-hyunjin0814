@@ -22,7 +22,7 @@ ProcessBattle(hero, goblin);
 void ProcessBattle(IAttacker attacker, IDefender defender)
 {
     attacker.Attack(defender);
-    if (defender.CurrentHp == 0)
+    if (defender.IsDead)
     {
         Console.WriteLine($"{defender}(이/가) 쓰러졌습니다!");
     }

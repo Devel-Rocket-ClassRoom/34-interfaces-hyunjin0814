@@ -31,6 +31,10 @@ class Monster : IAttacker, IDefender
     {
         CurrentHp -= damage;
         Console.WriteLine($"{Name} HP: {CurrentHp}/{MaxHp}");
+        if (CurrentHp == 0)
+        {
+            IsDead = true;
+        }
     }
 
     public override string ToString()
